@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="OnlineShop.Core/OnlineShop.Core.csproj" />
+  <Project Path="OnlineShop.Infrastructure/OnlineShop.Infrastructure.csproj" />
+  <Project Path="OnlineShop.Tests/OnlineShop.Tests.csproj" />
+  <Project Path="OnlineShopApi/OnlineShopApi.csproj" />
+</Solution>
