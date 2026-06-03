@@ -33,5 +33,5 @@ namespace OnlineShop.Core.Entities
             public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
         }
     }
-}
-}
+
+
