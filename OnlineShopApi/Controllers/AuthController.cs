@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using OnlineShop.Core.DTOs;
 using OnlineShop.Infrastructure.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -22,7 +23,7 @@ namespace OnlineShopApi.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterModel model)
+        public async Task<IActionResult> Register([FromBody] RegisterDto model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -42,7 +43,7 @@ namespace OnlineShopApi.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -80,25 +81,5 @@ namespace OnlineShopApi.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-    }
-
-    public class RegisterModel
-    {
-        [System.ComponentModel.DataAnnotations.Required]
-        public string FirstName { get; set; } = string.Empty;
-        [System.ComponentModel.DataAnnotations.Required]
-        public string LastName { get; set; } = string.Empty;
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Email { get; set; } = string.Empty;
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Password { get; set; } = string.Empty;
-    }
-
-    public class LoginModel
-    {
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Email { get; set; } = string.Empty;
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Password { get; set; } = string.Empty;
     }
 }
