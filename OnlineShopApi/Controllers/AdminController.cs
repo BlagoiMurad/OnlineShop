@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using OnlineShop.Core.DTOs;
 using OnlineShop.Infrastructure.Data;
 
 namespace OnlineShopApi.Controllers
@@ -20,10 +21,15 @@ namespace OnlineShopApi.Controllers
         [HttpGet("users")]
         public IActionResult GetUsers()
         {
-            var users = _userManager.Users.ToList();
+            var users = _userManager.Users.Select(u => new UserDto
+            {
+                Id = u.Id,
+                Email = u.Email ?? string.Empty,
+                FirstName = u.FirstName,
+                LastName = u.LastName
+            }).ToList();
             return Ok(users);
         }
-
         [HttpDelete("users/{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
