@@ -39,6 +39,7 @@ namespace OnlineShop.Infrastructure.Data
                     new Category { Name = "Clothing", Description = "Men and women clothing" },
                     new Category { Name = "Books", Description = "Books and magazines" },
                     new Category { Name = "Sports", Description = "Sports equipment and accessories" }
+
                 };
                 await context.Categories.AddRangeAsync(categories);
                 await context.SaveChangesAsync();
@@ -59,7 +60,13 @@ namespace OnlineShop.Infrastructure.Data
                     new Product { Name = "T-Shirt", Description = "Cotton t-shirt", Price = 19.99m, Stock = 100, CategoryId = clothing.Id },
                     new Product { Name = "Jeans", Description = "Blue denim jeans", Price = 49.99m, Stock = 50, CategoryId = clothing.Id },
                     new Product { Name = "C# Programming", Description = "Learn C# programming", Price = 29.99m, Stock = 30, CategoryId = books.Id },
-                    new Product { Name = "Football", Description = "Professional football", Price = 24.99m, Stock = 40, CategoryId = sports.Id }
+                    new Product { Name = "Football", Description = "Professional football", Price = 24.99m, Stock = 40, CategoryId = sports.Id },
+                    new Product { Name = "Headphones", Description = "Wireless headphones", Price = 149.99m, Stock = 15, CategoryId = electronics.Id },
+new Product { Name = "Keyboard", Description = "Mechanical keyboard", Price = 89.99m, Stock = 20, CategoryId = electronics.Id },
+new Product { Name = "Jacket", Description = "Winter jacket", Price = 79.99m, Stock = 30, CategoryId = clothing.Id },
+new Product { Name = "Sneakers", Description = "Running sneakers", Price = 59.99m, Stock = 45, CategoryId = clothing.Id },
+new Product { Name = "ASP.NET Core", Description = "Learn ASP.NET Core", Price = 34.99m, Stock = 25, CategoryId = books.Id },
+new Product { Name = "Basketball", Description = "Professional basketball", Price = 29.99m, Stock = 35, CategoryId = sports.Id },
                 };
                 await context.Products.AddRangeAsync(products);
                 await context.SaveChangesAsync();
